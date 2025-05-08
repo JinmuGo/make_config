@@ -12,7 +12,7 @@
 
 .DEFAULT_GOAL := all
 
-PROJECT_NAME := libft
+PROJECT_NAME := ft_printf
 LIB_DIR := lib/$(PROJECT_NAME)/libs
 ARFLAGS := rcs
 CFLAGS := -Wall -Wextra -Werror -MMD -MP

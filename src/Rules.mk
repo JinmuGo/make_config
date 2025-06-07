@@ -13,20 +13,16 @@
 .DEFAULT_GOAL := all
 
 PROJECT_NAME := minishell
-BONUS_NAME := minishell_bonus
 
 MANDATORY_DIR := $(PROJECT_NAME)
-BONUS_DIR := $(BONUS_NAME)
 
-MANDATORY_LIB_DIR := src/$(MANDATORY_DIR)/lib
-BONUS_LIB_DIR := src/$(BONUS_DIR)/lib
+MANDATORY_LIB_DIR := src/lib
 
 MAN_DST_DIR := $(TOPDIR)/$(MANDATORY_LIB_DIR)
-BON_DST_DIR := $(TOPDIR)/$(BONUS_LIB_DIR)
 
 ARFLAGS := rcs
 CFLAGS := -Wall -Wextra -Werror -MMD -MP
-CPPFLAGS := -I$(TOPDIR)/includes $(if $(findstring bonus, $(MAKECMDGOALS)), -I$(TOPDIR)/src/$(BONUS_DIR)/includes,-I$(TOPDIR)/src/$(MANDATORY_DIR)/includes) -I$(shell brew --prefix readline)/include/readline
+CPPFLAGS := -I$(TOPDIR)/includes -I$(TOPDIR)/src/includes -I$(shell brew --prefix readline)/include/readline
 LDFLAGS := -L$(TOPDIR)/lib -L$(shell brew --prefix readline)/lib
 LDLIBS := -lft_arr -lft_ascii -lft_io -lft_is -lft_lst -lft_math -lft_mem -lft_str -lreadline
 
